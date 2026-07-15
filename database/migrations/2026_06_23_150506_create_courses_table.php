@@ -13,10 +13,19 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('course_name');
-            $table->string('day');
-            $table->foreignId('area_id')->constrained('areas')->onDelete('cascade');
-            $table->foreignId('training_center_id')->constrained('training_centers')->onDelete('cascade');
+            $table->string('course_number');
+            $table->set('day', ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes']);
+            //Atributos foraneos
+            $table->unsignedBigInteger('area_id')->nullable();
+            $table->unsignedBigInteger('training_center_id')->nullable();
+           //referenciando la tabla users
+            $table->foreign('area_id')
+                ->references('id')
+                ->on('areas')->onDelete('set null');
+            //referenciando la tabla categorias
+            $table->foreign('training_center_id')
+            ->references('id')
+            ->on('training_centers')->onDelete('set null');
             $table->timestamps();
         });
     }
