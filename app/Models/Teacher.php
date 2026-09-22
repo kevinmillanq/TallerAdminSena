@@ -10,8 +10,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Teacher extends Model
 {
     use HasFactory;
+
     public function area(): BelongsTo
     {
         return $this->belongsTo(Area::class);
+    }
+
+    public function trainingCenter(): BelongsTo
+    {
+        return $this->belongsTo(TrainingCenter::class);
     }
 }
