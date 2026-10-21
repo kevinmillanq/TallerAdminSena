@@ -11,6 +11,8 @@ class Apprentice extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function course(): BelongsTo
     {
         return $this->belongsTo(Course::class);
@@ -21,3 +23,4 @@ class Apprentice extends Model
         return $this->belongsTo(Computer::class);
     }
 }
+

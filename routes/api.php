@@ -30,3 +30,5 @@ Route::get('/training-centers', [TrainingCenterController::class, 'index'])->nam
 Route::get('/courses', [CourseController::class, 'index'])->name('api.v1.courses.index');
 Route::get('/computers', [ComputerController::class, 'index'])->name('api.v1.computers.index');
 Route::get('/apprentices', [ApprenticeController::class, 'index'])->name('api.v1.apprentices.index');
+
+Route::apiResource('areas', AreaController::class);

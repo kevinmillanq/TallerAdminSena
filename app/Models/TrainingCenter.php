@@ -12,7 +12,7 @@ class TrainingCenter extends Model
 
     protected $fillable = [
         'name',
-        'address',
+        'location',
     ];
 
     // Un centro tiene muchos profesores

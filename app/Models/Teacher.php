@@ -11,6 +11,8 @@ class Teacher extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function area(): BelongsTo
     {
         return $this->belongsTo(Area::class);
@@ -21,3 +23,4 @@ class Teacher extends Model
         return $this->belongsTo(TrainingCenter::class);
     }
 }
+
