@@ -24,11 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/teachers', [TeacherController::class, 'index'])->name('api.v1.teachers.index');
-Route::get('/areas', [AreaController::class, 'index'])->name('api.v1.areas.index');
-Route::get('/training-centers', [TrainingCenterController::class, 'index'])->name('api.v1.training-centers.index');
-Route::get('/courses', [CourseController::class, 'index'])->name('api.v1.courses.index');
-Route::get('/computers', [ComputerController::class, 'index'])->name('api.v1.computers.index');
-Route::get('/apprentices', [ApprenticeController::class, 'index'])->name('api.v1.apprentices.index');
-
 Route::apiResource('areas', AreaController::class);
+Route::apiResource('training-centers', TrainingCenterController::class);
+Route::apiResource('teachers', TeacherController::class);
+Route::apiResource('courses', CourseController::class);
+Route::apiResource('computers', ComputerController::class);
+Route::apiResource('apprentices', ApprenticeController::class);
