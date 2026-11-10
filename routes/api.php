@@ -8,6 +8,7 @@ use App\Http\Controllers\TrainingCenterController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\ApprenticeController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,9 @@ Route::apiResource('teachers', TeacherController::class);
 Route::apiResource('courses', CourseController::class);
 Route::apiResource('computers', ComputerController::class);
 Route::apiResource('apprentices', ApprenticeController::class);
+
+// Rutas para adjuntar y gestionar imágenes en Cloudinary (Polimórficas: Area, TrainingCenter, Computer)
+Route::apiResource('images', ImageController::class);
+Route::post('/areas/{area}/image', [ImageController::class, 'uploadForArea']);
+Route::post('/training-centers/{trainingCenter}/image', [ImageController::class, 'uploadForTrainingCenter']);
+Route::post('/computers/{computer}/image', [ImageController::class, 'uploadForComputer']);
